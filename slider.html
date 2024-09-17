@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous"
+     referrerpolicy="no-referrer" />
+    <title>Slider</title>
+</head>
+
+
+<body>
+
+      <style>
+        *{
+             margin : 0 ; 
+             padding:  0 ;
+             box-sizing: border-box;
+        }
+            .slider{
+                    height : 90vh ; 
+                    width : 100% ; 
+                    position : relative ;                   
+            }
+            .slider img{
+                object-fit: cover;
+                height : 100% ; 
+                width : 100% ; 
+                position : absolute ;
+                top :0 ; 
+                left :0;
+                opacity:0;
+                transition: opacity 0.5s; 
+            }
+            .slider img.active{
+                opacity : 1; 
+            }
+            .suivant , .precedent
+            {  
+                color : white  ;  
+                font-size : 3rem ;
+                position : absolute ; 
+                top : 50% ; 
+                transform : translateY(-50%) ; 
+            }
+            .suivant { 
+                 right:1rem; 
+           
+            }
+            .precedent {
+                 left:1rem;    
+            }
+            .num {
+                width : 50vh ; 
+                height : 50px ; 
+                position :absolute;  
+                left : 50%;
+                transform : translateX(-50%);
+                margin-top : 5px ; 
+                
+            }
+            .num .item{
+                     margin :0 7% ;
+                     position : relative  ;
+                     height: 4vh;
+                     width : 4vh ; 
+                     float : left ;
+                     border: 2px double black ;
+                     border-radius : 50% ;
+                     transition : opacity 20s ;
+
+                     
+            }
+            .num .item.active {
+                
+                    background-color: black;
+                         
+            }
+            .dessusbar{ 
+                        position: absolute ;
+                        top : 0 ; 
+                        margin : 0 ; 
+                        height : 5vh ; 
+                        width : 100% ; 
+                        background-color: green;
+                        text-align : center ; 
+                       font-size : 20px ; 
+                       font-family : system-ui ; 
+                       z-index : 2;
+
+                }
+                .dessusbar .majuscule{
+                       text-transform: uppercase;
+                }
+
+            .bar {
+                  height : 11vh ; 
+                   width : 100% ;
+                  position :absolute ; 
+                  z-index: 1;
+                   top : 0 ; 
+                   left : 0 ; 
+                   font-size : 24px ; 
+                   font-family: system-ui;
+                  background-color: white;
+                }
+                .bar .items {
+                    position:relative;
+                   float : left ; 
+                    left : 5% ;
+                    top: 50px  ; 
+                    color : green ; 
+                    text-decoration: none;
+                   -webkit-text-stroke : 0.1px black ;
+                    
+                }
+                .bar .items:not(:first-of-type){
+                        margin-left : 100px; 
+                }
+                .submenu{
+                      display : none ; 
+                }
+                .bar .items:hover{
+                       cursor: pointer;
+                       color: black;
+                }
+                .bar #a1:hover .submenu{
+                    display:block ;
+                    z-index:6;
+                     position:absolute; 
+                    margin-left:Opx ; 
+                    margin-top:0px ; 
+                    background-color: red ;
+
+                }       
+                .bar #a1:hover .submenu ul { 
+                    display: block;
+           position:relative;
+           background-color:red;    
+                }  
+                .bar #a1:hover #m1 ul li{
+                    width : 140px ;  
+        padding-left: 0;
+                }  
+
+
+    
+    </style>
+
+<div class="dessusbar"> <span> <span class="majuscule"> free shipping </span>on order over $45</span>
+</div>
+
+ <div class="bar">
+     <span href="#" class="items" id="a1">shop</span>
+     <span href="#" class="items" id="a2">company</span>
+     <span href="#" class="items" id="a3">store locate</span>
+         <div class="submenu">      
+            <ul>  
+                <li><a>moetez</a></li> 
+                <li><a>jebari</a></li> 
+                <li><a>shopping</a></li>  
+            </ul>
+        </div>
+           
+ </div>
+
+    
+
+ 
+
+     <div class="slider">    
+
+        <img  src="photos/kalib.jpeg" alt="img2" class="img__slider active"/>
+        <img  src="photos/kaliv.jpeg" alt="img3" class="img__slider"/>
+        <img  src="photos/kalir.jpeg" alt="img4" class="img__slider"/>
+        <img  src="photos/font.png"   alt="img1" class="img__slider"/>
+        
+            <div class="suivant"  ><i class="fas fa-chevron-circle-right"></i></div>
+            <div class="precedent"><i class="fas fa-chevron-circle-left"></i></div>
+
+           
+        </div>
+        <div class="num">
+            <div class="item active"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        
+        </div>
+
+        <script src = "slider.js"></script>
+</body>
+</html>
